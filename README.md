@@ -12,14 +12,15 @@ A light, easy and elegant mobile chat app. Based on Ionic framework.
   * Online-offline indicator
   * Input nicely redesigned
   * Push notification using node-apn in the backend
-  * Turing Robot for testing message feature, have a try at demo
+  * Turing Robot for testing message feature,have a try at demo
+
 # Todo Features
-  IM Part:
+## IM Part:
   * Picture Sending (Upload/Compress/Download)
   * Voice sending (Compress)
   * Group Chat implementation
-  
-  COOP Part:
+
+## COOP Part:
   * Meeting part (Holding/Record)
   * Real-time voice
   * Real-time white-board
