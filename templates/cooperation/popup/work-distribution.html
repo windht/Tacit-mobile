@@ -1,0 +1,8 @@
+<div class="list team-distribution">
+  <a class="item item-icon-left item-icon-right" ng-repeat="people in Team[0].members" ng-click="selectToggle(people,Team[0].teamTaskList[list].listTasks[taskNum].taskChargeMembers)">
+    <img ng-src="{{'img/'+people+'.png'}}">
+    {{people}}
+    <i class="icon" ng-class="{'ion-android-done':checkSelected(people,Team[0].teamTaskList[list].listTasks[taskNum].taskChargeMembers)}"></i>
+  </a>
+
+</div>

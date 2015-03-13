@@ -1,0 +1,62 @@
+<ion-view>
+  <div class="bar bar-header bar-positive">
+    <button class="button button-icon icon ion-ios-arrow-back" ng-click="goto('tab.team')"></button>
+    <h1 class="title">任务详情</h1>
+    <button class="button button-icon icon ion-archive" ng-click="archive()"></button>
+  </div>
+  <ion-content class="has-header">
+  <div class="team-task task-detail-box">
+    <span class="team-task-box" 
+    ng-class="{'ion-android-checkbox-outline-blank':!Team[0].teamTaskList[list].listTasks[taskNum].taskDone,'ion-android-checkbox':Team[0].teamTaskList[list].listTasks[taskNum].taskDone}"
+    ng-click="taskDone()"
+    ></span>
+    <div class="team-task-title" ng-class="{'done':Team[0].teamTaskList[list].listTasks[taskNum].taskDone}">
+      {{Team[0].teamTaskList[list].listTasks[taskNum].taskName}}
+    </div>
+    <div class="team-info">
+      <div class="team-deadline"></div>
+      <div class="team-checklist ion-ios-paper-outline"></div>
+      <div class="team-description ion-ios-list-outline" ng-if="Team[0].teamTaskList[list].listTasks[taskNum].taskDescriptions!=''"></div>
+      <div class="team-content"></div>
+      <div class="task-content-edit ion-compose" ng-click="openContentEdit()"></div>
+    </div>
+    <div class="team-task-description" 
+    ng-bind-html="trust(Team[0].teamTaskList[list].listTasks[taskNum].taskDescriptions)"
+    > 
+    </div>
+  </div>
+  <div class="list task-detail-list">
+      <a class="item item-icon-left" ng-click="workDistribution()">
+        <i class="icon ion-ios-people"></i>
+          分配
+        <span class="task-detail-img">
+          <img ng-repeat="people in Team[0].teamTaskList[list].listTasks[taskNum].taskChargeMembers" ng-src="{{'img/'+people+'.png'}}">
+        </span>
+      </a>
+      <a class="item item-icon-left" ng-click="pickDeadLine()">
+        <i class="icon ion-ios-calendar"></i>
+          截止日期
+        <span class="item-note">
+          {{Team[0].teamTaskList[list].listTasks[taskNum].taskDeadLine}}
+        </span>
+      </a>
+      <a class="item item-icon-left">
+        <i class="icon ion-ios-eye"></i>
+          邀请关注
+        <span class="item-note">
+          
+        </span>
+      </a>
+      <div class="task-detail-comment">
+        <i class="icon ion-ios-chatbubble"></i>
+        <p class="task-detail-comment-title">评论</p>
+        <div class="comment" ng-repeat="comment in Team[0].teamTaskList[list].listTasks[taskNum].taskComments">
+          <img ng-src="{{'img/'+comment.from+'.png'}}">
+          <p class="task-detail-comment-time">{{comment.time}}</p>
+          <p class="task-detail-comment-content">{{comment.content}}</p>
+        </div>
+      </div>
+      <div class="task-detail-tail"></div>
+    </div>
+  </ion-content>
+</ion-view>

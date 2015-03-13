@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="css/ionic.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/date/classic.css" rel="stylesheet">
+    <link href="css/date/rtl.css" rel="stylesheet">
+    <link href="css/date/classic.date.css" rel="stylesheet">
+    <link href="css/date/classic.time.css" rel="stylesheet">  
+    <link href="css/ionicons.min.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/ionic.bundle.min.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="js/vendor/ng-cordova.min.js"></script>
+    <script src="cordova.js"></script>
+    
+    
+    <script src="js/vendor/lodash.min.js"></script>
+    <script src="js/vendor/angular-datepicker.js"></script>
+    <script src="js/vendor/ui-bootstrap-0.12.0.min.js"></script>
+    <script src="js/vendor/ui-bootstrap-tpls-0.12.0.min.js"></script>
+    <script src="js/vendor/socket.io.js"></script>
+    <script src="js/vendor/socket.min.js"></script>
+    <script src="js/vendor/paper-full.min.js"></script>
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/mobile-event.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/team-controller.js"></script>
+    <script src="js/meeting-controller.js"></script>
+    <script src="js/rtc-controller.js"></script>
+    <script src="js/lab-socket.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/filter/filter.js"></script>
+  </head>
+  <body ng-app="labapp" animation="slide-left-right-ios7" ng-controller="MainCtrl">
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>

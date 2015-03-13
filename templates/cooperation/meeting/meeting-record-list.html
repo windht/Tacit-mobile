@@ -1,0 +1,32 @@
+<ion-view>
+  <div class="bar bar-header bar-positive">
+    <button class="button button-icon icon ion-ios-arrow-back" ng-click="goto('tab.meeting')"></button>
+    <h1 class="title">会议记录</h1>
+  </div>
+
+  	<ion-content class="has-header">
+  		<div class="bar item-input-inset">
+		  	<label class="item-input-wrapper">
+			    <i class="icon ion-ios7-search placeholder-icon"></i>
+			    <input type="search" ng-model="searchText" placeholder="搜索主题">
+			</label>
+			<button class="button button-clear" ng-click="searchText=''">
+			    取消
+			</button>
+		</div>
+
+		<div class="list">
+
+			<a class="item item-avatar item-icon-right"
+			ng-click="goto('tab.meetingrecord',{meetingNum:$index})" 
+			ng-repeat="record in Meeting.allRecords | filter:searchText">
+			      <img src="img/icon/today-task.png">
+			      <h2>{{record.date}}</h2>
+			      <p>{{record.meetingName}}</p>
+			      <p>参与人：{{record.attendingMembers | ArrayToList}}</p>
+			      <i class="icon ion-ios-arrow-right"></i>
+			</a>
+		</div>
+	</ion-content>
+
+</ion-view>

@@ -1,0 +1,25 @@
+<div class="pick-date">
+
+  <div class="date-block year">
+    <div class="up-arrow ion-ios-arrow-up" ng-click="changedate('year',1)"></div>
+    <div class="date-input">
+      {{year}}
+    </div>
+    <div class="down-arrow ion-ios-arrow-down" ng-click="changedate('year',-1)"></div>
+  </div>
+  <div class="date-block">
+    <div class="up-arrow ion-ios-arrow-up" ng-click="changedate('month',1)"></div>
+    <div class="date-input">
+      {{month}}
+    </div>
+    <div class="down-arrow ion-ios-arrow-down" ng-click="changedate('month',-1)"></div>
+  </div>
+  <div class="date-block">
+    <div class="up-arrow ion-ios-arrow-up" ng-click="changedate('day',1)"></div>
+    <div class="date-input">
+      {{day}}
+    </div>
+    <div class="down-arrow ion-ios-arrow-down" ng-click="changedate('day',-1)"></div>
+  </div>
+
+</div>

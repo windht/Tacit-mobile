@@ -1,0 +1,78 @@
+<div class="auth-container">
+
+	<div class="auth-title"><img src="img/Tacit-icon.png"></div>
+	
+
+	<ion-slide-box 
+		delegate-handle="authslide"
+		show-pager="false"
+		class="auth-slide"
+	>
+
+	<ion-slide>
+		<form class="auth-form" novalidate name="loginform">
+			<div class="list list-inset auth-input">
+			  	<label class="item item-input">
+			    	<input ng-model="login.userinfo" type="text" placeholder="Username" required>
+			  	</label>
+			  	<label class="item item-input">
+			    	<input ng-model="login.password" type="password" placeholder="Password" required>
+			  	</label>
+
+		  	</div>
+		  	<button class="button button-block button-calm" ng-click="loginform.$valid && login()">
+			  Sign In
+			</button>
+
+			<button class="button button-block button-energized" ng-click="slideto('reg')">
+			  Register
+			</button>
+
+			<div class="auth-nav">
+				<button class="button button-clear">Forget Password</button>
+				<button class="button button-clear" ng-click="slideto('reg')">Register</button>
+			</div>
+
+			<!-- <button class="button button-block button-calm" ng-show="Device.supportTouchID" ng-click="checkTouchID()">
+			  TouchID登陆
+			</button> -->
+		</form>
+	</ion-slide>
+
+	<ion-slide>
+		<form class="auth-form" novalidate name="signform">
+			<div class="list list-inset auth-input">
+			  	<label class="item item-input">
+			    	<input name="username" ng-model="user.username" type="text" placeholder="Username" ng-minlength=4 ng-maxlength=20 required>
+			  	</label>
+			  	<label class="item item-input">
+			    	<input name="email" ng-model="user.email" type="email" placeholder="Email" required>
+			  	</label>
+			  	<label class="item item-input">
+			    	<input name="password" ng-model="user.password" type="password" placeholder="Password" ng-minlength=6 ng-maxlength=20 required>
+			  	</label>
+			  	<!-- <label class="item item-input">
+			    	<input name="invitecode" ng-model="user.invitecode" type="text" placeholder="邀请码" required>
+			  	</label> -->
+
+		  	</div>
+		  	<button class="button button-block button-calm" ng-click="register()">
+			  Confirm Register
+			</button>
+
+			<div class="auth-nav">
+				<button class="button button-clear" ng-click="slideto('login')">Go To Login</button>
+			</div>
+		</form>
+	</ion-slide>
+
+</ion-slide-box> 
+
+
+
+	<div class="auth-footer hide-on-keyboard-open">
+		<img src="img/zhuxin.png">
+		<p>Copyright© 2013-2014 BuildMind Tech</p>
+	</div>
+
+</div>

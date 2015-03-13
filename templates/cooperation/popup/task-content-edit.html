@@ -1,0 +1,21 @@
+<ion-modal-view>
+    <ion-header-bar>
+      <h1 class="title">编辑内容</h1>
+      <button class="button button-icon icon ion-ios-close-empty" ng-click="closeContentEdit()"></button>
+    </ion-header-bar>
+    <ion-content
+      scroll="false"
+    >
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label" style="width:15%">标题</span>
+            <input type="text" ng-model="Team[0].teamTaskList[list].listTasks[taskNum].taskName">
+          </label>
+          <label class="item item-input">
+            <span class="input-label" style="width:15%">内容</span>
+            <textarea style="height:250px;" type="text" ng-model="Team[0].teamTaskList[list].listTasks[taskNum].taskDescriptions"></textarea>
+          </label>
+          <button class="button button-full button-balanced" ng-click="saveChangeContent()">确认修改</button>
+        </div>
+    </ion-content>
+</ion-modal-view>

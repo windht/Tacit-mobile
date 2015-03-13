@@ -1,0 +1,48 @@
+<ion-view title="我想通话" hide-back-button="true">
+  <ion-nav-buttons side="right">
+    <button class="button button-icon icon"
+            ng-class="{ 'ion-ios7-mic-off': muted, 'ion-ios7-mic': !muted }"
+            ng-click="toggleMute()"
+            ></button>
+    <button class="button button-icon icon ion-plus-round" 
+            ng-click="openSelectContactModal()"></button>
+  </ion-nav-buttons>
+  <ion-content on-scroll="updateVideoPosition()" on-scroll-complete="updateVideoPosition()">
+    <div class="calling-container" ng-if="isCalling && !callInProgress">
+      <p>正在拨打<span class="balanced">{{ contactName }}</span>...</p>
+
+      <button class="button button-assertive" ng-click="ignore()">
+        还是算了
+      </button>
+    </div>
+
+    <div class="calling-container" ng-if="!isCalling && !callInProgress">
+      <p><span class="balanced">{{ contactName }}</span> is calling you</p>
+
+      <button class="button button-positive" ng-click="answer()">
+        应答
+      </button>
+
+      <button class="button button-assertive" ng-click="ignore()">
+        忽略
+      </button>
+    </div>
+
+    <div class="calling-container" ng-if="callInProgress">
+      <p>
+        通话中
+      </p>
+
+      <button class="button button-assertive" ng-click="end()">
+        结束
+      </button>
+    </div>
+
+    <div class="calling-container">
+    	<button class="button button-positive" ng-click="toggleAudioMode">切换功放或听筒模式</button>
+    </div>
+
+
+
+  </ion-content>
+</ion-view>

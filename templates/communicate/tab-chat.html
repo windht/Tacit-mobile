@@ -1,0 +1,49 @@
+<ion-view>
+	<div class="bar bar-header bar-stable">  
+	  <i class="button button-icon icon ion-ios-arrow-left" ng-click="goBack()"></i> 
+      <div class="h1 title">{{Friends.list[Chat.currentIndex].name}}</div>
+    </div>
+	<ion-content 
+		class="has-header chat-big-box"
+		ng-style="{height:Chat.scrollHeight}"
+		delegate-handle="chat-box"
+		id="chat-content"
+		>
+		<div class="chatunits" ng-repeat="msg in Chat.record[Chat.currentIndex].msg track by msg.hashkey">
+			<div class="chatbubble" ng-class="{'self':msg.type=='self','other':msg.type!='self'}">
+				<img class="chathead" ng-src="{{'img/'+msg.from+'.png'}}" ng-show="msg.type!='self'"></img>
+				<img class="chathead" ng-src="{{'img/'+Auth.user+'.png'}}" ng-show="msg.type=='self'"></img>
+				<div class="chatpointer"></div>
+				<div class="chatmsg" ng-if="msg.contentType=='text' || msg.contentType==undefined" ng-bind-html="trust(msg.content)"></div>
+				<div class="chatimage" ng-if="msg.contentType=='image'" ng-click="console.log('hi')" 
+				>
+					<img ng-src="{{msg.content}}" >
+				</div>
+				<div class="chataudio" ng-if="msg.contentType=='audio'" ng-click="console.log('hi')" 
+				>
+					<audio ng-src="{{trustAsResource(msg.content)}}" controls>
+				</div>
+				<div class="chatmsgstatus" ng-class="{'ion-loading-c':msg.sentStatus==1,'ion-checkmark':msg.sentStatus==2}" >
+					
+				</div>
+
+				<!-- <div class="ion-loading-d" ng-show="msg.type=='self'"></div> -->
+			</div>
+		</div>
+		<div class="chat-bottom"></div>
+	</ion-content>
+
+	<div id="chat-form" chat-form>
+	    <div class="bar bar-footer item item-input-inset chat-form" id="chat-input" name="chatform">
+	    	<i class="button button-icon icon ion-android-attach" ng-click=""></i>
+		    <label class="item-input-wrapper" id="chat-input-box">
+		      <textarea type="text" id="chat-textarea" ng-model="Chat.input" placeholder="Message..."></textarea>
+		    </label>
+		    <i class="button button-icon icon ion-ios-mic-outline" ng-if="Chat.input==''" record-voice>
+		    </i>
+		    <button class="button button-positive" ng-if="Chat.input!=''" ng-click="sendmsg()">
+		    	发送
+		    </button>
+	    </div>
+	</div>
+</ion-view>

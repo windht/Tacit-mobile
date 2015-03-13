@@ -1,0 +1,151 @@
+<ion-view>
+
+  <div class="bar bar-header bar-positive">
+    <button class="button button-icon icon ion-ios-arrow-back" ng-click="goto('tab.team')"></button>
+    <h1 class="title">会谈空间</h1>
+    <button class="button button-icon icon ion-archive"></button>
+  </div>
+
+	<ion-slide-box
+		delegate-handle="meetingSpaceSlide"
+		show-pager="false"
+		class="meeting-space-slide-box"
+	>
+		<ion-slide>
+			<ion-content 
+			class="has-header"
+			>
+				<div class="list">
+					<a class="item" style="text-align:center;" ng-if="!Meeting.hasMeeting">
+					    当前没有会议
+					</a>
+					<a class="item" style="text-align:center;" ng-if="Meeting.hasMeeting" ng-click="gotoMeeting()">
+					    有会议进行中，点击前往
+					</a>
+
+					<div class="item item-divider">
+					    会议记录
+					</div>
+
+					<a class="item item-avatar item-icon-right"
+						ng-click="goto('tab.meetingrecord',{meetingNum:(Meeting.allRecords.length-1-$index)})"
+						ng-repeat="record in Meeting.lastTwoRecords"
+					>
+				      <img src="img/icon/today-task.png">
+				      <h2>{{record.date}}</h2>
+				      <p>{{record.meetingName}}</p>
+				      <p>参与人：{{record.attendingMembers | ArrayToList}}</p>
+				      <i class="icon ion-ios-arrow-right"></i>
+				    </a>
+				    <a class="item" style="text-align:center;" 
+				    ng-click="goto('tab.meetingrecordlist')"
+				    >
+					    更多
+					</a>
+				</div>
+			</ion-content>
+		</ion-slide>
+
+		<ion-slide>
+			<ion-content class="has-header" scroll="false">
+			<canvas id="meeting-interaction" width="500" height="500"></canvas>
+				<div class="lab-slide-box">
+					<div class="lab-slide" 
+					ng-repeat="section in Meeting.sectionInfo" 
+					ng-class="{'current':$index==Meeting.currentSection,'prev':$index<Meeting.currentSection,'next':$index>Meeting.currentSection}"
+					>
+						<div class="section-title">{{section.sectionTitle}}</div>
+						<div class="lab-slide-box ">
+							<div class="lab-slide meeting-presentation-content"
+							ng-repeat="step in section.sectionSteps"
+							ng-class="{'current':$index==Meeting.currentStepOfSection,'prev':$index<Meeting.currentStepOfSection,'next':$index>Meeting.currentStepOfSection}"
+							>
+								<div class="step-title">{{step.stepFocus}}</div>
+								<div class="chatmsg">{{step.stepFocuscomment}}</div>
+								<img class="" 
+								ng-src="{{Meeting.dataUrl+'img/'+step.stepImgsrc+'.jpg'}}"
+								ng-style="{width:imgSize+'%'}"
+								ng-show="step.stepImgsrc"
+								ng-click="openPicModal(step.stepImgsrc)"
+								>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="controller-zone">
+					<div ng-show="Meeting.sectionInfo[Meeting.currentSection].sectionSpeaker==Auth.user || Auth.user=='windht'">
+						<button 
+						class="button button-energized" 
+						ng-click="meetinggo('last meeting section')"
+						ng-show="Meeting.currentStepOfSection==0 && Meeting.currentSection>0"
+						>
+						上一节
+						</button>
+						<button 
+						class="button button-balanced" 
+						ng-click="Meeting.currentStepOfSection>0 && meetinggo('last meeting step')"
+						ng-show="Meeting.currentStepOfSection>0"
+						>
+						上一步
+						</button>
+						<button 
+						class="button button-balanced" 
+						ng-click="Meeting.currentStepOfSection< Meeting.sectionInfo[Meeting.currentSection].sectionSteps.length-1 && meetinggo('next meeting step')" 
+						ng-show="Meeting.currentStepOfSection< Meeting.sectionInfo[Meeting.currentSection].sectionSteps.length-1"
+						>
+						下一步
+						</button>
+						<button 
+						class="button button-energized" 
+						ng-click="meetinggo('next meeting section')"
+						ng-show="Meeting.currentStepOfSection==Meeting.sectionInfo[Meeting.currentSection].sectionSteps.length-1 && Meeting.currentSection<Meeting.sectionInfo.length-1"
+						>
+						下一节
+						</button>
+						<button 
+						class="button button-balanced" 
+						ng-show="Meeting.currentStepOfSection==Meeting.sectionInfo[Meeting.currentSection].sectionSteps.length-1 && Meeting.currentSection==Meeting.sectionInfo.length-1"
+						>
+						会议结束
+						</button>
+					</div>
+				</div>
+			  </ion-content>
+		</ion-slide>
+	</ion-slide-box>
+  <div class="meeting-communicate">
+  	<div class="meeting-communicate-head" ng-click="openSpace()">
+  		<p>当前会谈空间共三人</p>
+  	</div>
+  	<div class="meeting-people">
+  		<div class="meeting-people-head" ng-repeat="people in Meeting.members" ng-show="people.name!=Auth.user">
+  			<img ng-src="{{'img/'+people.name+'.png'}}" ng-class="{'unentered':!people.entered}">
+  		</div>
+  	</div>
+
+  	<canvas id="meeting-whiteboard" 
+  	ng-style="{
+  	width:whiteBoard.width+'px',
+  	height:whiteBoard.height+'px',
+  	background:whiteBoard.background
+  	}"
+  	width="500"
+  	height="500"
+  	></canvas>
+
+  	<div class="item range range-positive">
+		<i class="icon ion-ios7-sunny-outline"></i>
+		<input type="range" name="volume" min="3" max="15" step="2" ng-model="Board.pathWidth">
+		<i class="icon ion-ios7-sunny"></i>
+	</div>
+
+  	<button class="button button-balanced" ng-click="attendMeetingCall()">接入语音</button>
+
+  	<button class="button button-balanced" ng-click="Board.path.length>0 && killPath()">删除路径</button>
+
+  	<button class="button button-icon ion-ios-arrow-down meeting-communicate-close" ng-click="closeSpace()"></button>
+
+  	
+  </div>
+
+</ion-view>

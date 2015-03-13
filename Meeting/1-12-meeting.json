@@ -1,0 +1,113 @@
+[
+	{
+		"sectionSpeaker":"windht",
+		"sectionTitle" : "EDX－MIT企业家001，002课程体验与分析",
+		"sectionSteps" : [
+			{
+				"stepFocus":"EDX框架本身所想要的是什么？",
+				"stepComments":{
+					"from":"windht",
+					"comment":"上课页面中看进度的ui是一个accordion，类似下拉框的一种tab类的选择模块，完全没有链条式的概念。",
+					"imgsrc":"accordion"
+				}
+			},
+			{
+				"stepFocus":"SlideBased，我们如何能做的更好？",
+				"stepComments":{
+					"from":"windht",
+					"comment":"可以看到，这种递步式的概念是嵌入其中的，尤其上下页这一设计也和我们想要做的思路一致。",
+					"imgsrc":"slidebased"
+				}
+			},
+			{
+				"stepFocus":"短板还是妥协？",
+				"stepComments":{
+					"from":"windht",
+					"comment":"我们也许可以总结，这是一种进步，然而并没有较好的迎合线下课堂。当MIT尝试将其搬上线时，大部分的Slide都充斥着图片和一到两句话。",
+					"imgsrc":"fewwords"
+				}
+			},
+			{
+				"stepFocus":"少许交互",
+				"stepComments":{
+					"from":"windht",
+					"comment":"当然，他们也有用到少许的交互插件，比如论坛和简单的答题，但是体验太差了。没有焦点，没有点赞排序，更让人没有回复的欲望。答题部分则完全可以放在视频下方直接进行，另开一页破坏了整体的流感体验。",
+					"imgsrc":"discussion"
+				}
+			}
+		],
+		"sectionReferences":[
+			{
+				"referenceTitle":"EDX之框架理念",
+				"referenceType":"link",
+				"referenceSrc":"http://www.tuicool.com/articles/RJfUbi",
+				"referenceFocus":[
+					"三层，从section，到subsection，到unit",
+					"内部可嵌入内建的题目系统，图片，iframe，自建html",
+					"可以说是较强的slide－base，过程重于结果的一种模式"
+				]
+			},
+			{
+				"referenceTitle":"MIT－企业家001的设计",
+				"referenceType":"link",
+				"referenceSrc":"http://baike.baidu.com/link?url=c2yZ1B_j1zp5_F2QCSIZA0za9B2B-lgjIC8pOL1nxKlY2ki8XGfmD7Y3LEtUQqhd2ZguCo8_u36NjvuZ3lRjTq",
+				"referenceFocus":[
+					"大部分吸引人的为视频内容以及漫画，课程过程中无题目",
+					"一次性放出了全部内容，没有一种沉浸式的链条学习体验",
+					"对peer assessment的利用不出彩，对discussion forum更是只擦到了边边"
+				]
+			}
+		]
+	},
+	{
+		"sectionSpeaker":"windht",
+		"sectionTitle" : "2月份面基形成",
+		"sectionSteps" : [
+			{
+				"stepFocus":"面基的好处",
+				"stepComments": {
+					"from":"windht",
+					"comment":"一来当然是实时的沟通，二来我们也要约定和促成一个全新的协作方式。"
+				}
+			}
+		],
+		"sectionReferences":[
+			{
+				"referenceTitle":"基本行程与分工",
+				"referenceType":"doc",
+				"referenceSrc":"",
+				"referenceFocus":[
+					"市场：消费者分析",
+					"开发：开发与外包",
+					"产品：减法的酝酿"
+				]
+			}
+		]
+	},
+	{
+		"sectionSpeaker":"cpycpy",
+		"sectionTitle" : "教师关于在线教育的采访",
+		"sectionSteps" : [
+			{
+				"stepFocus":"有请老陈叙述",
+				"stepComments": {
+					"from":"cpycpy",
+					"comment":"",
+					"imgsrc":"cpy"
+				}
+			}
+		],
+		"sectionReferences":[
+			{
+				"referenceTitle":"采访简录",
+				"referenceType":"doc",
+				"referenceSrc":"http://115.159.35.129/img/interview.pdf",
+				"referenceFocus":[
+					"许多老师把教学看做个性化的过程，协调好标准化与个性化的空间十分重要。",
+					"经验证，我们可以把教学过程划分为“内容组织”（讲什么、按什么顺序讲），“内容收集”（用什么素材讲，具体讲哪些内容），“内容表现”（举什么例子，PPT，板书，课件等）三个部分。前两者是主要由课程内容本身决定，变动很小；决定课程质量的在内容表现上。",
+					"采访中，老师提到希望得到的帮助，还是站在网络服务于现实课堂的基础上。对于现实课堂和在线课堂，所提供的服务是存在很大不同的。"
+				]
+			}
+		]
+	}
+]

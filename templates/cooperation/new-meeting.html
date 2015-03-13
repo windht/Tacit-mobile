@@ -1,0 +1,46 @@
+<ion-view title="新会议"> 
+  <ion-content>
+  	<div class="list">
+      <label class="item item-input item-stacked-label">
+	    <span class="input-label">会议主题</span>
+	    <input type="text" placeholder="请输入简要的主题">
+	  </label>
+
+	  <label class="item item-input item-stacked-label">
+	    <span class="input-label">会议暂定日期</span>
+	    <input type="text" pick-a-date="date" placeholder="选择日期"/>
+	  </label>
+
+	  <label class="item item-input item-stacked-label">
+	    <span class="input-label">会议暂定时间</span>
+	    <input type="text" pick-a-time="time" placeholder="选择时间"/>
+	  </label>
+
+	  <label class="item item-input item-stacked-label">
+	    <span class="input-label">会议类型</span>
+	  </label>
+
+	  <div class="button-bar">
+		  <a class="button button-positive meeting-type" ng-class="{'inactive':selected!=1}" ng-click="selected=1">例会</a>
+		  <a class="button button-positive meeting-type" ng-class="{'inactive':selected!=2}" ng-click="selected=2">头脑风暴</a>
+		  <a class="button button-positive meeting-type" ng-class="{'inactive':selected!=3}" ng-click="selected=3">焦点小组</a>
+		</div>
+
+	   <label class="item item-input item-stacked-label">
+	    <span class="input-label">会议时长 -- {{meetinglength}}分钟</span>
+	  </label>
+
+	  <div class="item range range-positive">
+	    <i class="icon ion-ios7-sunny-outline"></i>
+	    <input type="range" name="volume" min="0" max="60" value="30" ng-model="meetinglength">
+	    <i class="icon ion-ios7-sunny"></i>
+	  </div>
+
+	  <div class="button-bar">
+		  <a class="button">发送邀请</a>
+		  <a class="button">存档</a>
+		  <a class="button">继续编辑</a>
+	  </div>
+
+  </ion-content>
+</ion-view>

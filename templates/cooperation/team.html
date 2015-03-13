@@ -1,0 +1,85 @@
+<ion-view>
+    <div class="bar bar-header bar-positive">
+      <button class="button button-icon icon ion-ios-arrow-back" ng-click="goto('tab.dash')"></button>
+	  <h1 class="title">乐道团队</h1>
+	</div>
+  <ion-content class="has-header">
+
+    <div class="team-notification">
+
+    	<p class="notification-title">团队公告</p>
+    	<img class="notification-img-left" src="img/icon/notification.png">
+    	<img class="notification-img-right" src="img/icon/add.png">
+    	<p class="notification-content"></p>
+    	<p class="notification-nothing">当前无公告</p>
+
+    </div>
+
+    <div class="list meeting-space-list">
+    	<a class="item item-thumbnail-left" ng-click="goto('tab.meeting')">
+	      <img src="img/icon/meeting.png">
+	      <h2>会谈空间</h2>
+	      <p>当前会议室中有0人在线</p>
+	      <p>近期没有会议安排</p>
+	      <p>共14条会议记录</p>
+	    </a>
+    </div>
+
+    <ion-scroll
+    direction="x"
+    scrollbar-x="false"
+    delegate-handle="teamlabel"
+    class="team-work-label-bar">
+    	<span class="team-work-label" 
+    	ng-class="{'selected':slideSelect==$index}"
+    	ng-click="teamSlideTo($index)"
+    	ng-repeat="label in Team[0].teamTaskList">
+    		{{label.listName}}
+    	</span>
+    	<span 
+    	class="team-work-label"
+    	ng-class="{'selected':slideSelect==Team[0].teamTaskList.length}"
+    	ng-click="teamSlideTo(Team[0].teamTaskList.length)"
+    	>
+    		添加任务列表
+    	</span>
+	</ion-scroll>
+	<ion-slide-box
+		delegate-handle="teamslide"
+		show-pager="false"
+		on-slide-changed="teamslideChanged($index)"
+		class="team-work-slide-box"
+	>
+		<ion-slide ng-repeat="list in Team[0].teamTaskList">
+			<a class="item team-task" 
+			ng-repeat="task in list.listTasks"
+			ng-click="goto('tab.taskdetail',{list:$parent.$index,taskNum:$index})"
+			>
+				<span class="team-task-box" ng-class="{'ion-android-checkbox-outline-blank':!task.taskDone,'ion-android-checkbox':task.taskDone}"></span>
+				<div class="team-task-title" ng-class="{'done':task.taskDone}">
+					{{task.taskName}}
+				</div>
+				<div class="team-task-people" ng-if="task.taskChargeMembers.length!=0">
+					<img ng-repeat="people in task.taskChargeMembers" ng-src="{{'img/'+people+'.png'}}">
+				</div>
+			</a>
+			<a class="item team-task-add" ng-click="newTaskAt($index)">
+				<div class="task-add-button ion-ios-plus-empty"></div>
+				<p>添加新任务</p>
+			</a>
+		</ion-slide>
+		<ion-slide>
+		    <div class="list">
+				<div class="item item-input-inset">
+				    <label class="item-input-wrapper">
+				      <input type="text" placeholder="请输入任务列表名称">
+				    </label>
+				    <button class="button button-small">
+				      确认名字
+				    </button>
+				</div>
+			</div>
+		</ion-slide>
+	</ion-slide-box>
+  </ion-content>
+</ion-view>

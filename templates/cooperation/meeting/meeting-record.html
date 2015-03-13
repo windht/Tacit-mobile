@@ -1,0 +1,19 @@
+<ion-view>
+  <div class="bar bar-header bar-positive">
+    <button class="button button-icon icon ion-ios-arrow-back" ng-click="goBack()"></button>
+    <h1 class="title">会议记录</h1>
+    <button class="button button-clear" ng-click="openEmail()">发送邮件</button>
+  </div>
+  	<ion-content class="has-header padding">
+      <div id="record-content">
+    		<div class="meeting-record-sections" ng-repeat="section in Meeting.allRecords[meetingNum].content">
+    			<h3>{{$index+1 | NumToChinese}}、{{section.sectionTitle}}</h1>
+    			<div class="meeting-record-steps" ng-repeat="step in section.sectionSteps">
+    				<h4>{{$index+1}}.{{step.stepFocus}}</h2>
+    				<p>&nbsp;&nbsp;&nbsp;&nbsp;{{step.stepFocuscomment}}</p>
+    			</div>
+    		</div>
+      </div>
+	</ion-content>
+
+</ion-view>

@@ -1,0 +1,25 @@
+<ion-modal-view>
+    <ion-header-bar>
+      <button class="button button-icon icon ion-ios-close-empty" ng-click="closeEmailEdit()"></button>
+      <h1 class="title">邮件发送</h1>
+      <button class="button button-clear" ng-click="sendEmail()">发送</button>
+    </ion-header-bar>
+    <ion-content
+      scroll="true"
+    >
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label" style="width:15%">收件人</span>
+            <input type="email" ng-model="Email.to">
+          </label>
+          <label class="item item-input">
+            <span class="input-label" style="width:15%">主题</span>
+            <input type="text" ng-model="Email.subject">
+          </label>
+          <label class="item item-input">
+            <span class="input-label" style="width:15%">内容</span>
+            <div ng-bind-html="trust(Email.html)"></div>
+          </label>
+        </div>
+    </ion-content>
+</ion-modal-view>
