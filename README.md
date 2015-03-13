@@ -12,7 +12,7 @@ A light, easy and elegant mobile chat app. Based on Ionic framework.
   * Online-offline indicator
   * Input nicely redesigned
   * Push notification using node-apn in the backend
-  * Turing Robot for testing message feature, have a try at demo ^_^
+  * Turing Robot for testing message feature, have a try at demo
 # Todo Features
   IM Part:
   * Picture Sending (Upload/Compress/Download)
