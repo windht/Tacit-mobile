@@ -1,6 +1,8 @@
 # Tacit-mobile
 A light, easy and elegant mobile chat app. Based on Ionic framework. You may check the [demo](http://tonghu.info/#/demo/8) with a mobile framework.
 
+This App is going to be rewritten in Ionic 2 under Angular 2 Typescript.
+
 # Why?
   This app is inspired by telegram and evolute from the BuildMind Lab we are building previously. We are try to create a much lighter experience of cooperation.
 
